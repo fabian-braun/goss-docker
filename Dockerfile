@@ -8,7 +8,9 @@ ENV PATH=/goss:$PATH
 RUN apk add --no-cache --virtual=goss-dependencies curl ca-certificates && \
     mkdir /goss && \
     curl -fsSL https://goss.rocks/install | GOSS_DST=/goss sh && \
-    apk del goss-dependencies
+    apk del goss-dependencies && \
+    apk add --no-cache docker && \
+    apk add --no-cache bash
 
 VOLUME /goss
 
